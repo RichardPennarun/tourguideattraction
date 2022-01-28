@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Attraction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuideAttraction</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.attraction.model</a> &gt; <span class="el_source">Attraction.java</span></div><h1>Attraction.java</h1><pre class="source lang-java linenums">package com.tourguide.attraction.model;
+
+import java.util.Comparator;
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Attraction {
+
+	@Id
+	private UUID id;
+	private String attractionName;
+	private String city;
+	private String state;
+	private double latitude;
+	private double longitude;
+	private double distance;
+	private int reward;
+
+<span class="fc" id="L22">	public Attraction() {</span>
+<span class="fc" id="L23">	}</span>
+	
+	
+
+	public Attraction(String attractionName, String city, String state, double latitude, double longitude) {
+<span class="fc" id="L28">		super();</span>
+<span class="fc" id="L29">		this.attractionName = attractionName;</span>
+<span class="fc" id="L30">		this.city = city;</span>
+<span class="fc" id="L31">		this.state = state;</span>
+<span class="fc" id="L32">		this.latitude = latitude;</span>
+<span class="fc" id="L33">		this.longitude = longitude;</span>
+<span class="fc" id="L34">	}</span>
+
+
+
+	public Attraction(UUID id, String attractionName, String city, String state, double latitude, double longitude,
+			double distance, int reward) {
+<span class="fc" id="L40">		super();</span>
+<span class="fc" id="L41">		this.id = id;</span>
+<span class="fc" id="L42">		this.attractionName = attractionName;</span>
+<span class="fc" id="L43">		this.city = city;</span>
+<span class="fc" id="L44">		this.state = state;</span>
+<span class="fc" id="L45">		this.latitude = latitude;</span>
+<span class="fc" id="L46">		this.longitude = longitude;</span>
+<span class="fc" id="L47">		this.distance = distance;</span>
+<span class="fc" id="L48">		this.reward = reward;</span>
+<span class="fc" id="L49">	}</span>
+
+	public UUID getId() {
+<span class="fc" id="L52">		return id;</span>
+	}
+
+	public void setId(UUID attractionId) {
+<span class="fc" id="L56">		this.id = attractionId;</span>
+<span class="fc" id="L57">	}</span>
+
+	public String getAttractionName() {
+<span class="fc" id="L60">		return attractionName;</span>
+	}
+
+	public void setAttractionName(String attractionName) {
+<span class="fc" id="L64">		this.attractionName = attractionName;</span>
+<span class="fc" id="L65">	}</span>
+
+	public String getCity() {
+<span class="fc" id="L68">		return city;</span>
+	}
+
+	public void setCity(String city) {
+<span class="fc" id="L72">		this.city = city;</span>
+<span class="fc" id="L73">	}</span>
+
+	public String getState() {
+<span class="fc" id="L76">		return state;</span>
+	}
+
+	public void setState(String state) {
+<span class="fc" id="L80">		this.state = state;</span>
+<span class="fc" id="L81">	}</span>
+
+	public double getLatitude() {
+<span class="fc" id="L84">		return latitude;</span>
+	}
+
+	public void setLatitude(double latitude) {
+<span class="fc" id="L88">		this.latitude = latitude;</span>
+<span class="fc" id="L89">	}</span>
+
+	public double getLongitude() {
+<span class="fc" id="L92">		return longitude;</span>
+	}
+
+	public void setLongitude(double longitude) {
+<span class="fc" id="L96">		this.longitude = longitude;</span>
+<span class="fc" id="L97">	}</span>
+
+	public double getDistance() {
+<span class="fc" id="L100">		return distance;</span>
+	}
+
+	public void setDistance(double distance) {
+<span class="fc" id="L104">		this.distance = distance;</span>
+<span class="fc" id="L105">	}</span>
+
+	public int getReward() {
+<span class="fc" id="L108">		return reward;</span>
+	}
+
+	public void setReward(int reward) {
+<span class="fc" id="L112">		this.reward = reward;</span>
+<span class="fc" id="L113">	}</span>
+
+<span class="fc" id="L115">	public static Comparator&lt;Attraction&gt; ComparatorDistance = new Comparator&lt;Attraction&gt;() {</span>
+
+		@Override
+		public int compare(Attraction a1, Attraction a2) {
+<span class="fc" id="L119">			return (int) (a1.getDistance() - a2.getDistance());</span>
+		}
+
+	};
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
